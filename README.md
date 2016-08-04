@@ -5,7 +5,10 @@
 World-class streaming and advertisement technology to drive profit and provide best multi-screen,
 multi-device user experiences.
 
-# Stream Service
+# Stream Service (Enigma)
+
+Enigma provides transcoding as a service. She converts the source media content to the easily distributed format. 
+
 
 # Getting started
 
