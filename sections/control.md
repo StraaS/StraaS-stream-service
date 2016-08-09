@@ -1,7 +1,9 @@
 Control APIs
 ==============
 
-**Add Job**
+[Add Job](#add_job)
+
+<a name="add_job"></a>**Add Job**
 ----
   Returns json data about a single user.
 
