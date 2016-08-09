@@ -1,30 +1,53 @@
 Control APIs
 ==============
 
+Default API response: http code 200
+
 [Add Job](#add_job)
 
 <a name="add_job"></a>**Add Job**
 ----
-  Returns json data about a single user.
+Add a job to process the file transcoding tasks. Notify the `callback_url` when below defined event occurs.
 
 * **URL**
 
-  /jobs
+  POST `/jobs`
 
-* **Method:**
+* **Request Body**
 
-  `POST`
+  | Field | Data Type | Required | Description | Remark |
+  | --- | --- | --- | --- | --- |
+  | `user_id` | string | yes | | |
+  | `job_id` | string | yes | the unique id identifies this job | `^[A-Za-z0-9_.]+$`; `length <= 16` |
+  | `callback_url` | string | | the callback entry (`POST` method) for this job | ex: `http://www.abc.com/notifications`, detail [here](#callback) |
+  | `encoder_profile` | JSON | | customized bitrate for some resolution | 3 supporting resolutions: `1080p`, `720p`, `360p`; bitrate unit (k bits / sec); example as [here](#encoder_profile) |
 
-*  **URL Params**
+* **Response**
 
-* **Data Params**
+  Default API response
 
-  Required:
+* **Error Response**
 
-  Optional:
+  | Code | Type | Description |
+  | --- | --- | --- |
+  | 400 | Bad request | |
+  | 500 | Internal server error | |
 
-  encoderProfile=[JSON body]
-  ```json
+* **Example:**
+
+  ```go
+  // request
+  curl -X POST \
+    -d '{"user_id":"f695cb7452d153e985f3dafa7c026f91","job_id":"abcd","callback_url":"straas.io/callback","encoderProfile":[{"resolution":"720p","bitrate":2000}]}' \
+    "https://tx.straas.net/api/v1/jobs"
+
+  // response
+  200
+  ```
+
+* <a name="encoder_profile"></a>**Encoder Profile**
+
+  ```go
   {
     "encoderProfile": [
       {
@@ -43,23 +66,50 @@ Control APIs
   }
   ```
 
-* **Success Response:**
+* <a name="callback"></a>**Callback**
 
-  * **Code:** 200 <br />
-    **Content:** `{ id : 12, name : "Michael Bloom" }`
+  The `callback_url` passed in for this batch job will be requested when each defined event occurs.
+  The registered callback should be a `POST` method HTTP entry. The relating information about the job will
+  be included in the HTTP request body (JSON body) as below format.
 
-* **Error Response:**
+  | CB event | meaning | remark |
+  | --- | --- | --- |
+  | `preprocess` | move files to cloud storage | |
+  | `process` | start processing the job | |
+  | `transcode` | one task of the job has completed | |
+  | `completed` | all tasks of the job have completed | |
 
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
 
-  OR
+  ```go
+  // event: preprocess
+  {
+	"job_id": "abc",
+    "event": "preprocess"
+  }
+  ```
 
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
+  ```go
+  // event: process
+  {
+	"job_id": "abc",
+    "event": "process"
+  }
+  ```
 
-* **Sample Call:**
+  ```go
+  // event: transcode (will be triggered by each transcoding task in the batch job)
+  {
+	"job_id": "abc",
+    "event": "transcode",
+    "file": "test-1.mov",
+    "status": "completed" // {completed, error}
+  }
+  ```
 
-  ```shell
-  curl -X POST -d '{"encoderProfile":[{"resolution":"720p","bitrate":2000}]}' "https://tx.straas.net/<account_id>/api/v1/jobs"
+  ```go
+  // event: completed
+  {
+	"job_id": "abc",
+    "event": "completed"
+  }
   ```

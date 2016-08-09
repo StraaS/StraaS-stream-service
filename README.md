@@ -14,7 +14,7 @@ Enigma provides transcoding as a service. She converts the source media content 
 Making a request
 ----------------
 
-All URLs start with `https://tx.straas.net/<account_id>/api/v1/`. **SSL only**. The path is prefixed with the account id and the API version.
+All URLs start with `https://tx.straas.net/api/v1/`. **SSL only**. The path is prefixed with the API version.
 If we change the API in backward-incompatible ways, we'll bump the version marker and maintain stable support for the old URLs.
 
 That's all!
@@ -23,11 +23,14 @@ That's all!
 Authentication
 --------------
 
+TODO
+
 
 Handling errors
 ---------------
 
-If Enigma is having trouble, you might see a 5xx error. `500` means that the app is entirely down, but you might also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`.
+If Enigma is having trouble, you might see a 5xx error. 
+`500` means that the app is entirely down, but you might also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`.
 It's your responsibility in all of these cases to retry your request later. 
 
 
@@ -41,4 +44,8 @@ Check the `Retry-After` header to see how many seconds to wait before retrying t
 
 API ready for use
 -----------------
+
+* [Control](https://github.com/StraaS/StraaS-stream-service/blob/master/sections/control.md)
+* [Event](https://github.com/StraaS/StraaS-stream-service/blob/master/sections/event.md)
+* [Monitor](https://github.com/StraaS/StraaS-stream-service/blob/master/sections/monitor.md)
 
