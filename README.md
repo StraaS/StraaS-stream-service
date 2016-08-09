@@ -5,19 +5,40 @@
 World-class streaming and advertisement technology to drive profit and provide best multi-screen,
 multi-device user experiences.
 
-# Stream Service (Enigma)
+The Enigma API
+====================
 
 Enigma provides transcoding as a service. She converts the source media content to the easily distributed format. 
 
 
-# Getting started
+Making a request
+----------------
 
-# Usage examples
+All URLs start with `https://tx.straas.net/<account_id>/api/v1/`. **SSL only**. The path is prefixed with the account id and the API version.
+If we change the API in backward-incompatible ways, we'll bump the version marker and maintain stable support for the old URLs.
 
-# Under the hood
+That's all!
 
-## Media format supported
 
-- Container: `MP4`, `MOV`, `AVI`, `FLV`  
-- Video: `AVC`(H.264)  
-- Audio: `AAC`, `AC3`, `MP3`, `SPEEX`, `OPUS`
+Authentication
+--------------
+
+
+Handling errors
+---------------
+
+If Enigma is having trouble, you might see a 5xx error. `500` means that the app is entirely down, but you might also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`.
+It's your responsibility in all of these cases to retry your request later. 
+
+
+Rate limiting
+-------------
+
+You can perform up to 500 requests per 10 second period from the same IP address for the same account. 
+If you exceed this limit, you'll get a [429 Too Many Requests](http://tools.ietf.org/html/draft-nottingham-http-new-status-02#section-4) response for subsequent requests.
+Check the `Retry-After` header to see how many seconds to wait before retrying the request.
+
+
+API ready for use
+-----------------
+
