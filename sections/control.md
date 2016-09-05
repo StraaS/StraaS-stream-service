@@ -49,7 +49,7 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
 
   ```go
   {
-    "encoderProfile": [
+    "encoder_profile": [
       {
         "resolution": "1080p",
         "bitrate": 5000
