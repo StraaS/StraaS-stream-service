@@ -23,7 +23,7 @@ That's all!
 Authentication
 --------------
 
-TODO
+Please refer [Authentication wiki](https://github.com/StraaS/StraaS-web-document/wiki/Authentication). You should use `application token` to accees Enigma API.
 
 
 Handling errors
