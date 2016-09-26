@@ -34,7 +34,7 @@ curl -X POST --header 'Content-Type: application/json' \
 'https://cms.straas.io/api/v1/app/token'
 ```
 
-If success, the response returned will be like as below
+If success, the response will be like as below
 
 ```
 {
