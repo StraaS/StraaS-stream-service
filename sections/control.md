@@ -17,7 +17,7 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
 
   | Field | Data Type | Required | Description | Remark |
   | --- | --- | --- | --- | --- |
-  | `user_id` | string | yes | | |
+  | `client_id` | string | yes | | |
   | `job_id` | string | yes | the unique id identifies this job | `^[A-Za-z0-9_.]+$`; `length <= 16` |
   | `callback_url` | string | | the callback entry (`POST` method) for this job | ex: `http://www.abc.com/notifications`, detail [here](#callback) |
   | `encoder_profile` | JSON | | customized bitrate for some resolution | 3 supporting resolutions: `1080p`, `720p`, `360p`; bitrate unit (k bits / sec); example as [here](#encoder_profile) |
@@ -77,7 +77,8 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
   | --- | --- | --- |
   | `preprocess` | move files to cloud storage | |
   | `process` | start processing the job | |
-  | `transcode` | one task of the job has completed | |
+  | `transcoded` | one task of the job has completed | |
+  | `postprocess` | fetch result from cloud storage | |
   | `completed` | all tasks of the job have completed | |
 
 
@@ -104,6 +105,14 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
     "event": "transcode",
     "file": "test-1.mov",
     "status": "completed" // {completed, error}
+  }
+  ```
+
+  ```go
+  // event: postprocess
+  {
+	"job_id": "abc",
+    "event": "postprocess"
   }
   ```
 
