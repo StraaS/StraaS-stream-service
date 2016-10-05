@@ -99,10 +99,10 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
   ```
 
   ```go
-  // event: transcode (will be triggered by each transcoding task in the batch job)
+  // event: transcoded (will be triggered by each transcoding task finished in the batch job)
   {
 	"job_id": "abc",
-    "event": "transcode",
+    "event": "transcoded",
     "file": "test-1.mov",
     "status": "completed" // {completed, error}
   }
