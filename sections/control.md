@@ -7,7 +7,7 @@ Default API response: http code 200
 
 <a name="add_job"></a>**Add Job**
 ----
-Add a job to process the file transcoding tasks. Notify the `callback_url` when below defined event occurs.
+Add a job to start batch file transcoding (Each single file processing is called a `task`; One `job` could include many tasks). The registered`callback_url` will be notified when defined event occurs.
 
 * **URL**
 
@@ -18,7 +18,7 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
   | Field | Data Type | Required | Description | Remark |
   | --- | --- | --- | --- | --- |
   | `client_id` | string | yes | | |
-  | `job_id` | string | yes | the unique id identifies this job | `^[A-Za-z0-9_.]+$`; `length <= 16` |
+  | `job_id` | string | yes | the unique id (you should generate) to identify this job | `^[A-Za-z0-9_.]+$`; `length <= 16` |
   | `callback_url` | string | | the callback entry (`POST` method) for this job | ex: `http://www.abc.com/notifications`, detail [here](#callback) |
   | `encoder_profile` | JSON | | customized bitrate for some resolution | 3 supporting resolutions: `1080p`, `720p`, `360p`; bitrate unit (k bits / sec); example as [here](#encoder_profile) |
 
@@ -69,9 +69,9 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
 
 * <a name="callback"></a>**Callback**
 
-  The `callback_url` passed in for this batch job will be requested when each defined event occurs.
-  The registered callback should be a `POST` method HTTP entry. The relating information about the job will
-  be included in the HTTP request body (JSON body) as below format.
+  The `callback_url` passed in for this batch job will be notified when defined events occur.
+  The registered callback URL should be a `POST` HTTP entry. The relating information about the job will
+  be contained in the HTTP request body (JSON body) as below format.
 
   | CB event | meaning | remark |
   | --- | --- | --- |
