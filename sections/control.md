@@ -39,7 +39,7 @@ Add a job to process the file transcoding tasks. Notify the `callback_url` when 
   // request
   curl -X POST \
     --header 'Authorization: <YOUR_APPLICATION_TOKEN>' \
-    -d '{"client_id":"f695cb7452d153e985f3dafa7c026f91","job_id":"abcd","callback_url":"straas.io/callback","encoderProfile":[{"resolution":"720p","bitrate":2000}]}' \
+    -d '{"client_id":"f695cb7452d153e985f3dafa7c026f91","job_id":"abcd","callback_url":"straas.io/callback","encoder_profile":[{"resolution":"720p","bitrate":2000}]}' \
     "https://tx.straas.net/api/v1/jobs"
 
   // response
