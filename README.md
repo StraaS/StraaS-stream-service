@@ -14,7 +14,7 @@ Enigma provides transcoding as a service. She converts the source media content 
 Making a request
 ----------------
 
-All URLs start with `https://tx.straas.net/api/v1/`. **SSL only**. The path is prefixed with the API version.
+All URLs start with `https://tx.straas.io/api/v1/`. **SSL only**. The path is prefixed with the API version.
 If we change the API in backward-incompatible ways, we'll bump the version marker and maintain stable support for the old URLs.
 
 That's all!
