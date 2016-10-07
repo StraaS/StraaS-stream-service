@@ -17,7 +17,7 @@ Add a job to start batch file transcoding (Each single file processing is called
 
   | Field | Data Type | Required | Description | Remark |
   | --- | --- | --- | --- | --- |
-  | `client_id` | string | yes | | |
+  | `account` | string | yes | | |
   | `job_id` | string | yes | the unique id (you should generate) to identify this job | `^[A-Za-z0-9_.]+$`; `length <= 16` |
   | `callback_url` | string | | the callback entry (`POST` method) for this job | ex: `http://www.abc.com/notifications`, detail [here](#callback) |
   | `encoder_profile` | JSON | | customized bitrate for some resolution | 3 supporting resolutions: `1080p`, `720p`, `360p`; bitrate unit (k bits / sec); example as [here](#encoder_profile) |
@@ -39,7 +39,7 @@ Add a job to start batch file transcoding (Each single file processing is called
   // request
   curl -X POST \
     --header 'Authorization: <YOUR_APPLICATION_TOKEN>' \
-    -d '{"client_id":"f695cb7452d153e985f3dafa7c026f91","job_id":"abcd","callback_url":"straas.io/callback","encoder_profile":[{"resolution":"720p","bitrate":2000}]}' \
+    -d '{"account":"f695cb7452d153e985f3dafa7c026f91","job_id":"abcd","callback_url":"straas.io/callback","encoder_profile":[{"resolution":"720p","bitrate":2000}]}' \
     "https://tx.straas.io/api/v1/jobs"
 
   // response
