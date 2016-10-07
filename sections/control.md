@@ -39,7 +39,10 @@ Add a job to start batch file transcoding (Each single file processing is called
   // request
   curl -X POST \
     --header 'Authorization: <YOUR_APPLICATION_TOKEN>' \
-    -d '{"account":"f695cb7452d153e985f3dafa7c026f91","job_id":"abcd","callback_url":"straas.io/callback","encoder_profile":[{"resolution":"720p","bitrate":2000}]}' \
+    -d '{"account":"f695cb7452d153e985f3dafa7c026f91", \
+    "job_id":"abcd", \
+    "callback_url":"straas.io/callback", \
+    "encoder_profile":[{"resolution":"720p","bitrate":2000}]}' \
     "https://tx.straas.io/api/v1/jobs"
 
   // response
