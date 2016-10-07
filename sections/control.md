@@ -31,6 +31,7 @@ Add a job to start batch file transcoding (Each single file processing is called
   | Code | Type | Description |
   | --- | --- | --- |
   | 400 | Bad request | |
+  | 401 | Unauthorized | |
   | 500 | Internal server error | |
 
 * **Example:**
