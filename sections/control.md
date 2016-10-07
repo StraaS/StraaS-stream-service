@@ -18,7 +18,7 @@ Add a job to start batch file transcoding (Each single file processing is called
   | Field | Data Type | Required | Description | Remark |
   | --- | --- | --- | --- | --- |
   | `account` | string | yes | | |
-  | `job_id` | string | yes | the unique id (you should generate) to identify this job | `^[A-Za-z0-9_.]+$`; `length <= 16` |
+  | `job_id` | string | yes | the unique id (**you should generate**) to identify this job | `^[A-Za-z0-9_.]+$`; `length <= 16` |
   | `callback_url` | string | | the callback entry (`POST` method) for this job | ex: `http://www.abc.com/notifications`, detail [here](#callback) |
   | `encoder_profile` | JSON | | customized bitrate for some resolution | 3 supporting resolutions: `1080p`, `720p`, `360p`; bitrate unit (k bits / sec); example as [here](#encoder_profile) |
 
