@@ -5,7 +5,7 @@
 World-class streaming and advertisement technology to drive profit and provide best multi-screen,
 multi-device user experiences.
 
-The Enigma API
+The Enigma
 ====================
 
 Enigma provides transcoding as a service. She converts the source media content to the easily distributed format. 
