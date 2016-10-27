@@ -10,7 +10,7 @@ browny.lin@livehouse.in
 
 [[https://livehouse.in][*livehouse.in*]] is a live streaming solution for UGC 
 
-[[https://straas.io/][*straas.io*]] makes the behind infra available for ToB solution
+[[https://straas.io/][*straas.io*]] makes the underlying infra available for ToB solution
 
 Main responsibilities of backend (*5* RDs)
 
@@ -21,8 +21,8 @@ Main responsibilities of backend (*5* RDs)
 
 * About me
 
-- ~2 years experiences on Go, before C++, Java (total ~10)
-- Simple thing should be simple, complex things should be possible
+- ~2 years experiences on Go, following C++, Java (total ~10)
+- Simple things should be simple, complex things should be possible
 - Use [[https://github.com/browny/dotvim][vim]], share on [[https://twitter.com/brownylin][twitter]], code on [[https://github.com/browny][github]] 
 
 
@@ -103,8 +103,8 @@ VOD
 
 *Balance* between cost and service availability
 
-- How many idle machines should be keep online
-- Preparation for event burst impact (scheduled plan)
+- How many idle machines should be kept online
+- Prepare for burst load (scheduled plan)
 
 .image images/balance.png 200 _
 
