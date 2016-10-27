@@ -133,24 +133,24 @@ _Google_ _Cloud_ _Platform_
 
 _Inhouse_ _Service_
 
-- Sauron as metrics / alert service
-- Pixiu as billing service
-- Pierce as consensus service
-- Revealer as data analysis service
+- Metrics / Alert service
+- Billing service
+- Consensus service
+- Data analysis service
 
 
 * Summary
 
 Caveats
 
-- *Error* *handling* needs to be thought carefully (everything is possilbe to fail)
+- Handle errors carefully (everything is possilbe to fail)
 - Balance between *transcoding* cost and *bandwidth* cost
-- Streaming is just have to, the key should be *the* *interaction* *it* *enables*
+- Streaming is just a "must have", the key should be *the* *interaction* *it* *enables*
 
 Future work
 
 - Container engine for *finer* *granularity* *of* *resource* *consumption*
-- More clear modulization
+- Clearer modulization
 
 
 * Don't reinvent the wheel, leverage our hard work
