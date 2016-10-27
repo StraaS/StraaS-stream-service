@@ -1,0 +1,158 @@
+Live Streaming Service on Google Cloud Platform
+
+Browny Lin
+_Gopher_ at LIVEHouse.in
+@brownylin
+browny.lin@livehouse.in
+
+
+* Backend in LIVEHouse.in
+
+[[https://livehouse.in][*livehouse.in*]] is a live streaming solution for UGC 
+
+[[https://straas.io/][*straas.io*]] makes the behind infra available for ToB solution
+
+Main responsibilities of backend (*5* RDs)
+
+- Streaming: _C_
+- Messaging: _Node.js_ (plan to _Go_)
+- Infrastructure: _Go_
+
+
+* About me
+
+- ~2 years experiences on Go, before C++, Java (total ~10)
+- Simple thing should be simple, complex things should be possible
+- Use [[https://github.com/browny/dotvim][vim]], share on [[https://twitter.com/brownylin][twitter]], code on [[https://github.com/browny][github]] 
+
+
+* Outline
+
+- Streaming as a Service
+- Live Streaming Pipeline
+- Coordination and Scalability
+- Summary
+
+
+* Streaming as a Service
+
+ 
+* For Live
+
+.video videos/live-demo.mp4 video/mp4 540 _
+
+
+* For VOD (video on demand)
+
+.video videos/vod-demo.mp4 video/mp4 540 _
+
+
+* If you just need file conversion
+
+The [[https://github.com/StraaS/StraaS-stream-service][Enigma]] is for you
+
+- Programmable by API
+- Check out the step by step [[https://github.com/StraaS/StraaS-stream-service/wiki/Scenario#step0][tutorial]]
+- Support storage type: FTP (current); GCS, S3 in the future
+
+
+* Live Streaming Pipeline
+
+
+* Protocols
+
+Live
+
+- Input: [[https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol][RTMP]]
+- Output: [[https://en.wikipedia.org/wiki/HTTP_Live_Streaming][HLS]], MP4
+
+VOD
+
+- Input: Video files
+
+		Container: MP4, MOV, AVI, FLV
+		Video codec: AVC(H.264)
+		Audio codec: AAC, AC3, MP3, SPEEX, OPUS
+
+- Output: HLS, MP4
+
+
+* Flow (Live)
+
+.image images/live-flow.png 550 _
+
+
+* Flow (VOD)
+
+.image images/vod-flow.png 550 _
+
+
+* Coordination and Scalability
+
+
+* Responsibilities (1/3)
+
+*Arrange* suitable machine to serve corresponding stream
+
+- Reserved for connection retry
+- Basic or Premium 
+- Failover mechanism
+
+
+* Responsibilities (2/3)
+
+*Balance* between cost and service availability
+
+- How many idle machines should be keep online
+- Preparation for event burst impact (scheduled plan)
+
+.image images/balance.png 200 _
+
+
+* Responsibilities (3/3)
+
+*All* things hard to be categorized
+
+- Communication with other services (metrics, billing)
+- Deployment
+- Audition (fail gracefully)
+- Monitor & Alert
+
+.image images/notify.png 200 _
+
+
+* Stack
+
+_Google_ _Cloud_ _Platform_
+
+- *Compute* *Engine* for transcoder computing power
+- *Datastore* / *CloudSQL* for persistence
+- *Storage* for static assets hosting / file storage
+- *PubSub* for message queueing
+- *Bigquery* for data analysis
+
+_Inhouse_ _Service_
+
+- Sauron as metrics / alert service
+- Pixiu as billing service
+- Pierce as consensus service
+- Revealer as data analysis service
+
+
+* Summary
+
+Caveats
+
+- *Error* *handling* needs to be thought carefully (everything is possilbe to fail)
+- Balance between *transcoding* cost and *bandwidth* cost
+- Streaming is just have to, the key should be *the* *interaction* *it* *enables*
+
+Future work
+
+- Container engine for *finer* *granularity* *of* *resource* *consumption*
+- More clear modulization
+
+
+* Don't reinvent the wheel, leverage our hard work
+
+.image images/gcp-expert.png 450 _
