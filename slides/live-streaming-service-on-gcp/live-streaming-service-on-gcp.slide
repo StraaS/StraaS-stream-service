@@ -6,6 +6,13 @@ _Gopher_ at LIVEHouse.in
 browny.lin@livehouse.in
 
 
+* About me
+
+- ~2 years experiences on Go, following C++, Java
+- Simple things should be simple, complex things should be possible
+- Use [[https://github.com/browny/dotvim][vim]], share on [[https://twitter.com/brownylin][twitter]], code on [[https://github.com/browny][github]] 
+
+
 * Backend in LIVEHouse.in
 
 [[https://livehouse.in][*livehouse.in*]] is a live streaming solution for UGC 
@@ -14,16 +21,9 @@ browny.lin@livehouse.in
 
 Main responsibilities of backend (*5* RDs)
 
-- Streaming: _C_
-- Messaging: _Node.js_ (plan to _Go_)
-- Infrastructure: _Go_
-
-
-* About me
-
-- ~2 years experiences on Go, following C++, Java (total ~10)
-- Simple things should be simple, complex things should be possible
-- Use [[https://github.com/browny/dotvim][vim]], share on [[https://twitter.com/brownylin][twitter]], code on [[https://github.com/browny][github]] 
+- *Streaming*: _C_
+- *Messaging*: _Node.js_ (plan to _Go_)
+- *Infrastructure*: _Go_
 
 
 * Outline
@@ -36,19 +36,16 @@ Main responsibilities of backend (*5* RDs)
 
 * Streaming as a Service
 
- 
-* For Live
 
+* For Live
 .video videos/live-demo.mp4 video/mp4 540 _
 
 
 * For VOD (video on demand)
-
 .video videos/vod-demo.mp4 video/mp4 540 _
 
 
 * If you just need file conversion
-
 The [[https://github.com/StraaS/StraaS-stream-service][Enigma]] is for you
 
 - Programmable by API
@@ -113,7 +110,7 @@ VOD
 
 *All* things hard to be categorized
 
-- Communication with other services (metrics, billing)
+- Communication with other services (ex: metrics, billing)
 - Deployment
 - Audition (fail gracefully)
 - Monitor & Alert
@@ -154,5 +151,4 @@ Future work
 
 
 * Don't reinvent the wheel, leverage our hard work
-
 .image images/gcp-expert.png 450 _
