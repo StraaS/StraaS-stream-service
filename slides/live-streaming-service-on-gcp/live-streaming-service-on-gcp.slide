@@ -1,7 +1,8 @@
 Live Streaming Service on Google Cloud Platform
+goo.gl/gpyHgK
 
 Browny Lin
-_Gopher_ at LIVEHouse.in
+_Backend_ _Gopher_ at LIVEHouse.in
 @brownylin
 browny.lin@livehouse.in
 
@@ -13,11 +14,19 @@ browny.lin@livehouse.in
 - Use [[https://github.com/browny/dotvim][vim]], share on [[https://twitter.com/brownylin][twitter]], code on [[https://github.com/browny][github]] 
 
 
-* Backend in LIVEHouse.in
+* 
+[[https://livehouse.in][livehouse.in]] - live streaming solution for UGC
 
-[[https://livehouse.in][*livehouse.in*]] is a live streaming solution for UGC 
+.image images/livehousein.png 500 _
 
-[[https://straas.io/][*straas.io*]] makes the underlying infra available for ToB solution
+
+* 
+[[https://straas.io][straas.io]] - makes underlying infra of livehouse.in available for ToB solution
+
+.image images/straasio.png 500 _
+
+
+* Team
 
 Main responsibilities of backend (*5* RDs)
 
@@ -45,8 +54,8 @@ Main responsibilities of backend (*5* RDs)
 .video videos/vod-demo.mp4 video/mp4 540 _
 
 
-* If you just need file conversion
-The [[https://github.com/StraaS/StraaS-stream-service][Enigma]] is for you
+* Transcoder as a Service
+[[https://github.com/StraaS/StraaS-stream-service][github.com/StraaS/StraaS-stream-service]]
 
 - Programmable by API
 - Check out the step by step [[https://github.com/StraaS/StraaS-stream-service/wiki/Scenario#step0][tutorial]]
@@ -150,5 +159,6 @@ Future work
 - Clearer modulization
 
 
-* Don't reinvent the wheel, leverage our hard work
+* gcp.expert
+
 .image images/gcp-expert.png 450 _
