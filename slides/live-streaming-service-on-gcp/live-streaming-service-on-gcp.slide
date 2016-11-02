@@ -2,7 +2,7 @@ Live Streaming Service on Google Cloud Platform
 goo.gl/gpyHgK
 
 Browny Lin
-_Backend_ _Gopher_ at LIVEHouse.in
+_Gopher_ at LIVEHouse.in
 @brownylin
 browny.lin@livehouse.in
 
@@ -145,20 +145,26 @@ _Inhouse_ _Service_
 - Data analysis service
 
 
-* Summary
-
-Caveats
+* Summary (1/2)
 
 - Handle errors carefully (everything is possilbe to fail)
 - Balance between *transcoding* cost and *bandwidth* cost
 - Streaming is just a "must have", the key should be *the* *interaction* *it* *enables*
+
+
+* Summary (2/2)
 
 Future work
 
 - Container engine for *finer* *granularity* *of* *resource* *consumption*
 - Clearer modulization
 
+Hiring
 
-* gcp.expert
+- Yes, we are [[https://event.livehouse.in/zh-TW/about/recruit-engineer.html#backend-engineer][hiring]]
+
+
+* 
+[[https://gcp.expert][gcp.expert]]
 
 .image images/gcp-expert.png 450 _
